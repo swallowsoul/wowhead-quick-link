@@ -31,12 +31,12 @@ if IsMop() then
     nameSpace.baseWowheadUrl = "https://%swowhead.com/mop-classic/" .. wowheadLocale .. "%s=%s%s"
 end
 if IsForever() then
-    nameSpace.baseWowheadUrl = "https://%swowhead.com/forever/%s=%s%s"
+    nameSpace.baseWowheadUrl = "https://%swowhead.com/forever/" .. wowheadLocale .. "%s=%s%s"
 end
 
 nameSpace.baseWowheadAzEsUrl = "https://%swowhead.com/" .. wowheadLocale .. "azerite-essences/%s%s"
 nameSpace.baseWowheadTradingPostActivityUrl = "https://%swowhead.com/" .. wowheadLocale .. "trading-post-activities/%s%s"
-nameSpace.baseArmoryUrl = "https://worldofwarcraft.com/%s/character/%s/%s"
+nameSpace.baseArmoryUrl = "https://worldofwarcraft.blizzard.com/%s/worldsoul/%s/armory/character/%s/%s"
 nameSpace.baseRaiderIoUrl = "https://raider.io/characters/%s/%s/%s"
 
 local popupText = "%s Link\nCTRL-C to copy"
