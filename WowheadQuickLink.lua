@@ -30,6 +30,9 @@ end
 if IsMop() then
     nameSpace.baseWowheadUrl = "https://%swowhead.com/mop-classic/" .. wowheadLocale .. "%s=%s%s"
 end
+if IsForever() then
+    nameSpace.baseWowheadUrl = "https://%swowhead.com/forever/%s=%s%s"
+end
 
 nameSpace.baseWowheadAzEsUrl = "https://%swowhead.com/" .. wowheadLocale .. "azerite-essences/%s%s"
 nameSpace.baseWowheadTradingPostActivityUrl = "https://%swowhead.com/" .. wowheadLocale .. "trading-post-activities/%s%s"
@@ -88,7 +91,12 @@ StaticPopupDialogs["WowheadQuickLinkUrl"] = {
         editBox:SetScript("OnEscapePressed", HidePopup)
         editBox:SetScript("OnEnterPressed", HidePopup)
         editBox:SetScript("OnKeyUp", function(self, key)
-            if IsControlKeyDown() and key == "C" then HidePopup(self) end
+            if
+                (IsControlKeyDown() and key == "C")
+                or (IsKeyDown("C") and (key == "LCTRL" or key == "RCTRL"))
+            then
+                HidePopup(self)
+            end
         end)
         editBox:SetMaxLetters(0)
         editBox:SetText(data)
